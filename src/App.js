@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function Example() {
+    const[count, setCount] = useState(0)
+
+    useEffect(() => {
+        document.title = `You clicked ${count} times`
+    })
+
+    return(
+        <div className="count-block">
+            <h2>Counter</h2>
+            <p className="count-descr">you clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+                click me
+            </button>
+        </div>
+    )
 }
-
-export default App;
